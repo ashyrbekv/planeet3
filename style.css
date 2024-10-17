@@ -1,0 +1,111 @@
+body{
+    background: rgb(20, 20, 20);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-size: 12px;
+}
+.planet{
+    width: 30em;
+    height: 30em;
+    background: rgb(245, 242, 154);
+    border-radius: 50%;
+    box-shadow:
+     0 0 5em rgb(237, 226, 165),
+     0 0 20em 4em rgb(61, 67, 52),
+     0 0 55em 8em rgb(140, 150, 100)
+     ;
+position: relative;
+}
+.satellite, .satellite::after{
+    content: "";
+    position: absolute;
+    width: 5em;
+    height: 5em;
+    border-radius: 50px;
+}
+.satellite{
+    background:rgb(245, 242, 154);
+    box-shadow: -2em 0 5em -1em white;
+    overflow: hidden;
+    transition: 250ms;
+    left: 32em;
+    transform: rotate(20deg);
+    animation:round 5s infinite ease-in-out ;
+}
+.satellite::after{
+    background: rgb(46, 46, 46);;
+    width: 2.5em;
+    left: 2.5em;
+    box-shadow:0 0 0.75em 0.95em rgb(46, 46, 46);
+    animation: shadow 5s infinite ease-in-out;
+}
+
+@keyframes shadow {
+    0%{
+        width: 2.5em;
+        left: 0;
+    }
+
+    25%{
+        width: 5em;
+        left: 0;
+    }
+
+    50%{
+        width: 2.5em;
+        left: 2.5em;
+    }
+
+    75%{
+        width: 0em;
+        left: 2.5em;
+    }
+
+    80%{
+        left: 0 ;
+        box-shadow: 0 0 0.55em 0.75em rgb(48, 53, 48);
+    }
+
+    100%{
+        width: 2.5em;
+        left: 0;
+    }
+}
+
+@keyframes round {
+    0%,
+    100%{
+        top: 2em;
+        left: -15em;
+        box-shadow: -2em 0 5em 0.5em;
+        z-index: 2;
+    }
+
+    25%{
+        box-shadow:0 0 3em 1em rgb(58, 46, 46);
+    }
+    75%{
+        box-shadow:0 0 3em 1em black;
+    }
+    48%{
+        z-index: 2;
+    }
+    50%{
+        left: 40em;
+        top: 20em;
+        z-index: -1 ;
+        box-shadow: 2em 0 5em 0.5em rgb(54, 37, 37);
+    }
+    99%{
+        z-index: -1;
+    }
+}
+
+h2{
+    margin-left: 110px;
+    margin-top: 150px;
+    color: rgb(255, 0, 0);
+}
